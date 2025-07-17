@@ -1,0 +1,48 @@
+{% extends 'polls/base.html' %}
+{% block content %}
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="">Question List</h5>  
+        <a href="{% url 'question_create' %}">
+            <button class="btn btn-success">Add Question</button>
+        </a>
+    </div>
+  <div class="card-body">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Question Text</th>
+                <th>Description</th>
+                <th>Published Date</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for question in questions %}
+            <tr>
+                <td>{{ question.id }}</td>
+                <td>{{ question.question_text }}</td>
+                <td>{{ question.description|truncatechars:20 }}</td>
+                <td>{{ question.pub_date }}</td>
+                <td>{{ question.created_to }}</td>
+                <td>
+                    <a href="{% url 'question_update' question.pk %}">
+                        <button class="btn btn-warning" >Edit</button>
+                    </a>
+                    
+                    <a href="{% url 'question_delete' question.pk %}">
+                        <button class="btn btn-danger">Delete</button>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,20 @@
+
+# python manage.py runserver
+# python manage.py makemigrations
+# python manage.py migrate
+# python manage.py createsuperuser
+
+
+
+
+# MVC -> Models, V -> Views, C -> Controllers
+# In Django, the "Controller" is handled by the framework itself, so we focus on
+
+# MVT
+# M -> Model, V -> View, T -> Template
+
+# Django view == Controller in MVC
+
+
+
+CRUD -> C: Create, R: Read, U: Update, D: Delete
