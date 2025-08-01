@@ -17,4 +17,9 @@
 
 
 
-CRUD -> C: Create, R: Read, U: Update, D: Delete
+CRUD -> C: Create, R: Read, U: Update, D: Delete (Question)
+CRUD -> C: Create, R: Read, U: Update, D: Delete (Choice)
+
+19,21,23,25
+
+Models -> View(Form) -> Urls -> Template (Extend, block, New template)

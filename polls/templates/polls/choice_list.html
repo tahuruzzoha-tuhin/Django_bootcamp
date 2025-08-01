@@ -1,11 +1,12 @@
 {% extends 'polls/base.html' %}
+
 {% block content %}
 
 <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
-        <h5 class="">Question List</h5>  
-        <a href="{% url 'question_create' %}">
-            <button class="btn btn-success">Add Question</button>
+        <h5 class="">Choice List</h5>  
+        <a href="{% url 'choice_create' %}">
+            <button class="btn btn-success">Add Choice</button>
         </a>
     </div>
   <div class="card-body">
@@ -13,27 +14,27 @@
         <thead>
             <tr>
                 <th>Serial</th>
-                <th>Question Text</th>
-                <th>Description</th>
-                <th>Published Date</th>
+                <th>Question</th>
+                <th>Choice Text</th>
+                <th>Votes</th>
                 <th>Created At</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            {% for question in questions %}
+            {% for choice in choices %}
             <tr>
                 <td>{{ forloop.counter }}</td>
-                <td>{{ question.question_text }}</td>
-                <td>{{ question.description|truncatechars:20 }}</td>
-                <td>{{ question.pub_date }}</td>
-                <td>{{ question.created_to }}</td>
+                <td>{{ choice.question.question_text }}</td>
+                <td>{{ choice.choice_text }}</td>
+                <td>{{ choice.votes }}</td>
+                <td>{{ choice.created_at }}</td>
                 <td>
-                    <a href="{% url 'question_update' question.pk %}">
+                    <a href="{% url 'choice_update' choice.pk %}">
                         <button class="btn btn-warning" >Edit</button>
                     </a>
                     
-                    <a href="{% url 'question_delete' question.pk %}">
+                    <a href="{% url 'choice_delete' choice.pk %}">
                         <button class="btn btn-danger">Delete</button>
                     </a>
                 </td>

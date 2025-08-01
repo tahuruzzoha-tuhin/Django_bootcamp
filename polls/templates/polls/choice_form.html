@@ -1,0 +1,22 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+
+
+<div class="card">
+    <div class="card-header">
+        <h2 class="text-center"> {% if form.instance.pk %}Update{% else %}Create{% endif %} Choice</h2>  
+    </div>
+    <div class="card-body">
+        <form method="post" >
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+        <a  href="{% url 'choice_list' %}"><button class="btn btn-secondary mt-2">Cancel</button></a>
+    </div>
+
+</div>
+
+
+{% endblock %}

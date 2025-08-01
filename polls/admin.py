@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Question, Choice
+from .models import Question, Choice, StaticFileTest
 
 class QuestionAdmin(admin.ModelAdmin):
     list_display = ('question_text', 'pub_date', "created_to")
@@ -17,3 +17,4 @@ class ChoiceAdmin(admin.ModelAdmin):
     list_filter = ('created_at',)
 
 admin.site.register(Choice, ChoiceAdmin)
+admin.site.register(StaticFileTest)

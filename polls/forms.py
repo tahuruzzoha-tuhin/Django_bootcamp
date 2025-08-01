@@ -11,14 +11,31 @@ class QuestionForm(forms.ModelForm):
             'description': forms.Textarea(attrs={'placeholder': 'Enter question description'}),
         }
         
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs.update({
+                "class": "form-control",
+                # "placeholder": f"Enter {field.label}"
+            })
 
         
-# class ChoiceForm(forms.ModelForm):
-#     class Meta:
-#         model = Choice
-#         fields = ['question', 'choice_text', 'votes']
-        # widgets = {
-        #     'question': forms.Select(),
-        #     'choice_text': forms.TextInput(attrs={'placeholder': 'Enter choice text'}),
-        #     'votes': forms.NumberInput(attrs={'min': 0}),
-        # }   
+
+        
+class ChoiceForm(forms.ModelForm):
+    class Meta:
+        model = Choice
+        fields = ['question', 'choice_text', 'votes']
+        widgets = {
+            'question': forms.Select(),
+            'choice_text': forms.TextInput(attrs={'placeholder': 'Enter choice text'}),
+            'votes': forms.NumberInput(attrs={'min': 0}),
+        }   
+        
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs.update({
+                "class": "form-control",
+                # "placeholder": f"Enter {field.label}"
+            })

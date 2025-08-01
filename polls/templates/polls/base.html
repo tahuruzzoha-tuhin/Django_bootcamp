@@ -14,7 +14,7 @@
         
         <div class="d-flex justify-content-center mb-4 gap-1">
             <a href="{% url 'question_list' %}"><button class="btn btn-primary" >Questions</button></a>
-            <a href="#"><button class="btn btn-secondary">Choices</button></a>
+            <a href="{% url 'choice_list' %}"><button class="btn btn-secondary">Choices</button></a>
         </div>
 
         {% block content %}
